@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная - Няганский театр юного зрителя</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
+</head>
+<body id="overridebootstrap">
+    <nav class="navbar fixed-top navbar-expand-xl navbar2">
+        <div class="collapse navbar-collapse nav-lvl2" id="navbarContent2">
+                <ul class="navbar-nav mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link2" href="#">Отзывы</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link2" href="#">Купить билет</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link2" href="#">Онлайн трансляция</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link2" href="#"><i class="far fa-eye"></i><b>ВЕРСИЯ ДЛЯ СЛАБОВИДЯЩИХ</b></a>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+    <nav class="navbar fixed-top navbar-expand-xl">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'logo1.png' %}">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ГЛАВНАЯ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">АФИША</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">СПЕКТАКЛИ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ЛЮДИ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">ТЕАТР</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">НОВОСТИ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">КОНТАКТЫ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">МЕДИА</a>
+                    </li>
+                </ul>
+        </div>
+    </nav>
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            {% for image in firstCarouselleImage %}
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="{{ image.photo.url }}" alt="First slide">
+                </div>
+            {% endfor %}
+            {% for image in carouselleImages %}
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="{{ image.photo.url }}" alt="Another slide">
+                </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-4">
+                <div class="head-1">БЛИЖАЙШИЕ СПЕКТАКЛИ</div>
+            </div>
+        </div>
+    </div>
+
+
+    {% for performance in performances %}
+    <div class="container afishitem">
+        <div class="row">
+            <div class="col-lg-2 col-sm-2 offset-lg-1 offset-sm-1">
+                <h1 class="perfinfo">{{performance.dateTime.date}}</h1>
+            </div>
+            <div class="col-lg-2 col-sm-2">
+                <h1 class="perfinfo">{{ performance.dateTime.time}}</h1>
+                <h1 class="perfinfo">{{ performance.scene }}</h1>
+            </div>
+            <div class="col-lg-2 col-sm-2">
+                <img src="{{ performance.photo.url }}">
+            </div>
+            <div class="col-lg-5 col-sm-5">
+                <h1 class="perfname"> {{ performance.name }}</h1>
+                <h2 class="perfname"> <b>{{ performance.perfType.perfType }} </b></h2>
+            </div>
+        </div>
+    </div>
+            <hr align="center" width="500" color="Red" >
+    {% endfor %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 col-sm-5 offset-lg-4 offset-sm-4">
+                <div class="text-center head-1">НОВОСТИ ТЕАТРА</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            {% for post in posts %}
+                <div class="col-lg-4 col-sm-10offset-sm-2" id="news">
+                    <img class="newsimage" src="{{ post.photo.url }}">
+                    <a class="newslink" href="#"><h2 class="text-center head-2">{{ post.name }}</h2></a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-h1">
+            <p>
+                Единая социальная психологическая помощь:<br>
+                "Телефон доверия" - 8-800-101-12-12, 8-800-111-12-00<br>
+                "Детский телефон доверия" - 8-800-200-01-22<br>
+            </p>
+        </div>
+        <div class="footer-h2">
+            <p>
+                <b>
+                    НЯГАНСКИЙ ТЕАТР ЮНОГО ЗРИТЕЛЯ
+                </b>
+            </p>
+        </div>
+        <div class="footer-h1">
+            <p>
+            Юридический адрес:<br>
+            Российская Федерация, 628186 Ханты-Мансийский автономный округ–Югра,<br>
+            город Нягань, улица Киевская, 12 <br><br>
+
+            Фактический адрес:<br>
+            Российская Федерация, 628186 Ханты-Мансийский автономный округ–Югра,<br>
+            город Нягань, 1-ый микр-н, д. 25а<br><br>
+
+            тел/факс +7(34672) 6-16-10
+            </p>
+        </div>
+        <div class="footer-h1">
+            <p>
+                СЛЕДУЙТЕ ЗА НАМИ
+            </p>
+        </div>
+        <div class="footer-icons">
+            <i class="fab fa-facebook-f footer-icon"></i>
+            <i class="fab fa-vk footer-icon"></i>
+            <i class="fab fa-instagram footer-icon"></i>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

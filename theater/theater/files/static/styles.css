@@ -1,0 +1,117 @@
+#overridebootstrap a.nav-link{
+    font-size: 25px;
+    color: darkslategrey;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#overridebootstrap a.nav-link:hover{
+    color: black;
+}
+#overridebootstrap a.nav-link2{
+    font-size: 20px;
+    color: darkslategrey;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#overridebootstrap a.nav-link2:hover{
+    color: black;
+}
+#overridebootstrap nav.navbar{
+    background-color: whitesmoke;
+    border-radius: 0 0 10px 10px;
+}
+#overridebootstrap div.nav-lvl2{
+    margin-left: 120px;
+}
+
+#overridebootstrap nav.navbar2{
+    margin-top: 90px;
+}
+
+body{
+    padding-top: 150px;
+}
+
+
+.head-1 {
+    color: #8B734F;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    font-size: 30px;
+}
+
+#overridebootstrap .afishitem{
+    margin-bottom: 20px;
+}
+
+#overridebootstrap .perfinfo{
+    text-align: center;
+    font-size: 25px;
+}
+
+#overridebootstrap .perfname{
+    text-align: left;
+    font-size: 30px;
+}
+
+#overridebootstrap .newsimage{
+    width: inherit;
+    height: 300px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+@media only screen and (max-device-width: 1200px) {
+    div#navbarContent2
+    {
+        margin-top: 410px;
+    }
+
+    #overridebootstrap div.nav-lvl2
+    {
+        margin-left: 0px; !important;
+        font-size: 30px;
+    }
+
+}
+
+#overridebootstrap div.col-lg-4{
+    margin-left: 0px;
+}
+
+#overridebootstrap .head-2{
+    font-size: 20px;
+    color: #8B734F;
+    padding-bottom: 30px;
+}
+
+#overridebootstrap .newslink:hover{
+    color: darkslategray;
+}
+
+footer{
+    background-color: #2E2E2E;
+    border-radius: 10px 10px 0 0;
+}
+
+.footer-h1{
+    color: whitesmoke;
+    text-align: center;
+    align-content: center;
+}
+
+.footer-h2{
+    color: #8B734F;
+    text-align: center;
+    align-content: center;
+}
+.footer-icons{
+    text-align: center;
+    align-content: center;
+}
+.footer-icon{
+    color: whitesmoke;
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 30px;
+}
